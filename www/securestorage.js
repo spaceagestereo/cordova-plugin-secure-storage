@@ -63,16 +63,22 @@ var _executeNativeMethod = function (success, error, nativeMethodName, args) {
     cordova.exec(success, fail, 'SecureStorage', nativeMethodName, args);
 };
 
-SecureStorageiOS = function (success, error, service) {
+SecureStorageiOS = function (success, error, service, options) {
     this.service = service;
+	if (options) {
+        this.options = _merge_options(this.options, options);
+    }
     setTimeout(success, 0);
     return this;
 };
 
 SecureStorageiOS.prototype = {
+	options: {
+        icloudsync: true
+    },
     get: function (success, error, key) {
         try {
-            _executeNativeMethod(success, error, 'get', [this.service, key]);
+            _executeNativeMethod(success, error, 'get', [this.service, key, this.options.icloudsync]);
         } catch (e) {
             error(e);
         }
@@ -80,7 +86,7 @@ SecureStorageiOS.prototype = {
 
     set: function (success, error, key, value) {
         try {
-            _executeNativeMethod(success, error, 'set', [this.service, key, value]);
+            _executeNativeMethod(success, error, 'set', [this.service, key, value, this.options.icloudsync]);
         } catch (e) {
             error(e);
         }
@@ -88,7 +94,7 @@ SecureStorageiOS.prototype = {
 
     remove: function (success, error, key) {
         try {
-            _executeNativeMethod(success, error, 'remove', [this.service, key]);
+            _executeNativeMethod(success, error, 'remove', [this.service, key, this.options.icloudsync]);
         } catch (e) {
             error(e);
         }
