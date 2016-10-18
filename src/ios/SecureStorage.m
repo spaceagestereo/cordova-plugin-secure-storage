@@ -12,7 +12,7 @@
 {
     NSString *service = [command argumentAtIndex:0];
     NSString *key = [command argumentAtIndex:1];
-    BOOL icloudSync = [[command argumentAtIndex:2] boolValue];
+    BOOL icloudsync = [[command argumentAtIndex:2] boolValue];
 	
     [self.commandDelegate runInBackground:^{
         NSError *error;
@@ -38,7 +38,7 @@
     NSString *service = [command argumentAtIndex:0];
     NSString *key = [command argumentAtIndex:1];
     NSString *value = [command argumentAtIndex:2];
-    BOOL icloudSync = [[command argumentAtIndex:3] boolValue];
+    BOOL icloudsync = [[command argumentAtIndex:3] boolValue];
 	
     [self.commandDelegate runInBackground:^{
         NSError *error;
@@ -97,7 +97,7 @@
 {
     NSString *service = [command argumentAtIndex:0];
     NSString *key = [command argumentAtIndex:1];
-    BOOL icloudSync = [[command argumentAtIndex:2] boolValue];
+    BOOL icloudsync = [[command argumentAtIndex:2] boolValue];
 	
     [self.commandDelegate runInBackground:^{
         NSError *error;
